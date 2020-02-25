@@ -141,6 +141,9 @@ class Connector {
   int offsetA;
   int offsetB;
 
+  bool useNodeFromDate;
+  bool useNodeToDate;
+
   Connector();
 };
 

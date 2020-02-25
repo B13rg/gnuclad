@@ -89,10 +89,25 @@ void ParserCSV::parseData(Cladogram * clad, InputFile & in) {
         if((int)entry.size() < fixedFieldsConnector) throw 0;
 
         Connector * c = clad->addConnector();
-        c->fromWhen = Date(entry[1]);
+
+        if(entry[3] == "") {
+          if(entry[1] == "") {
+            c->useNodeFromDate = true;
+            c->useNodeToDate = true;
+          } else {
+            c->fromWhen = Date(entry[1]);
+            c->toWhen = Date(entry[1]);
+          }
+        } else {
+          if(entry[1] == "") {
+            c->useNodeFromDate = true;
+            c->toWhen = Date(entry[3]);
+          } else {
+            c->fromWhen = Date(entry[1]);
+            c->toWhen = Date(entry[3]);
+          }          
+        }
         c->fromName = entry[2];
-        if(entry[3] == "") c->toWhen = c->fromWhen;
-        else c->toWhen = Date(entry[3]);
         c->toName = entry[4];
         c->thickness = str2int(entry[5]);
         c->color = Color(entry[6]);

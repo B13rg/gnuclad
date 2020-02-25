@@ -430,6 +430,20 @@ void Cladogram::compute() {
   for(int i = 0; i < cCount; ++i) {
 
     c = connectors[i];
+    for(int j = 0; j < nCount; ++j) {
+      if(nodes[j]->name == c->fromName) {
+        c->from = nodes[j];
+        if(c->useNodeFromDate) {
+          c->fromWhen = c->from->start;
+        }
+      }
+      if(nodes[j]->name == c->toName) {
+        c->to = nodes[j];
+        if(c->useNodeToDate) {
+          c->toWhen = c->to->start;
+        }
+      }
+    }
 
     // Cosmetic improvement, since we have no 0th month or day
     if(c->fromWhen.month == 0) c->fromWhen.month = 1;
@@ -447,13 +461,6 @@ void Cladogram::compute() {
       --cCount;
       --i;
       continue;
-    }
-
-    for(int j = 0; j < nCount; ++j) {
-      if(nodes[j]->name == c->fromName)
-        c->from = nodes[j];
-      if(nodes[j]->name == c->toName)
-        c->to = nodes[j];
     }
 
     if(c->from == NULL || c->to == NULL) {

@@ -114,14 +114,26 @@ void GeneratorCSV::writeData(Cladogram * clad, OutputFile & out) {
 
   // Connectors
   f << "\"#\",\"Connectors\"" << tail2 << "\n"
-    << "\"#\",\"Leaving 'To When' empty will result in using 'From When' as this value\"" << tail2 << "\n"
+    << "\"#\",\"Leaving 'To When' empty and 'From When' set will result in using 'From When' as this value\"" << tail2 << "\n"
+    << "\"#\",\"Leaving both 'From When' and 'To When' empty will result in using the 'From' and 'To' node dates\"" << tail2 << "\n"
+    << "\"#\",\"Leaving 'From When' empty will result in using the 'From' node date as this value\"" << tail2 << "\n"
     << "\"#\",\"From When\",\"From\",\"To When\",\"To\",\"Thickness\",\"Color\"" << tailC << "\n";
   for(int i = 0; i < (int)clad->connectors.size(); ++i) {
 
     c = clad->connectors[i];
 
-    string fromWhen = Date2str(c->fromWhen);
-    string toWhen = Date2str(c->toWhen);                // cosmetic hack:
+    string fromWhen, toWhen;
+    if(c->useNodeFromDate) {
+      fromWhen = "";
+    } else {
+      fromWhen = Date2str(c->fromWhen);
+    }
+    if(c->useNodeToDate) {
+      toWhen = "";
+    } else {
+      toWhen = Date2str(c->toWhen);
+    }
+    // cosmetic hack:
     if( !(fromWhen < toWhen) && !(toWhen < fromWhen) )  // if they are equal
       toWhen = "";                                      // set empty toWhen date
 

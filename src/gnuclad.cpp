@@ -301,6 +301,8 @@ bool Node::derivesFrom(Node * p) {
 Connector::Connector() {
   from = NULL;
   to = NULL;
+  useNodeFromDate = false;
+  useNodeToDate = false;
 }
 
 InputFile::InputFile(std::string tname) {
