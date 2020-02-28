@@ -125,13 +125,16 @@ Node name at the end of the parser routine - you'll get an error otherwise):
 @end example
 
 @*
-Adding an image (currently supported: SVG and PNG):
+Adding an image (currently supported: SVG and PNG)
+If the node property is set, the location origin will be that node's coordinates:
 @example
   Image * image = clad->addImage("picture.svg", clad->includeSVG);
   image->x = 100;
   image->y = 50;
+  image->node = "";
 
   Image * image = clad->addImage("somewhere/picture.png", clad->includePNG);
   image->x = 10;
   image->y = 500;
+  image-> = "example";
 @end example

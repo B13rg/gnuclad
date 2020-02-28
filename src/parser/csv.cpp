@@ -34,7 +34,7 @@ void ParserCSV::parseData(Cladogram * clad, InputFile & in) {
   int fixedFieldsNode = 8;
   int fixedFieldsConnector = 7;
   int fixedFieldsDomain = 4;
-  int fixedFieldsImage = 4;
+  int fixedFieldsImage = 5;
 
   while( !f.eof() && f.good() ) {
 
@@ -125,16 +125,34 @@ void ParserCSV::parseData(Cladogram * clad, InputFile & in) {
         if((int)entry.size() < fixedFieldsImage) throw 0;
 
         Image * image = clad->addImage(entry[1], clad->includeSVG);
-        image->x = str2int(entry[2]);
-        image->y = str2int(entry[3]);
+        if(entry[2] == ""){
+          image->x = 0;
+        } else{
+          image->x = str2int(entry[2]);
+        }
+        if(entry[3] == ""){
+          image->y = 0;
+        } else {
+          image->y = str2int(entry[3]);
+        }
+        image->node = entry[4];
 
       } else if(ctl == "PNG") {
 
         if((int)entry.size() < fixedFieldsImage) throw 0;
 
         Image * image = clad->addImage(entry[1], clad->includePNG);
-        image->x = str2int(entry[2]);
-        image->y = str2int(entry[3]);
+        if(entry[2] == ""){
+          image->x = 0;
+        } else{
+          image->x = str2int(entry[2]);
+        }
+        if(entry[3] == ""){
+          image->y = 0;
+        } else {
+          image->y = str2int(entry[3]);
+        }
+        image->node = entry[4];
 
       } else throw 0;
 

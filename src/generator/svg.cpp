@@ -582,12 +582,24 @@ void GeneratorSVG::writeData(Cladogram * clad, OutputFile & out) {
   f << "\n<g inkscape:label='Included PNG Images' inkscape:groupmode='layer' id='layer_included_png'>\n";
   for(int i = 0; i < (int)clad->includePNG.size(); ++i) {
     image = clad->includePNG[i];
+    int xloc = image->x;
+    int yloc = image->y;
+    if(image->node != "") {
+      for(int k=0; k<(int)clad->nodes.size(); k++) {
+        n = clad->nodes[k];
+        if(n->name == image->node) {
+          xloc += datePX(n->start, clad);
+          yloc += n->offset * oPX;
+        }
+      }
+    }
 
     int imgWidth = 0;
     int imgHeight = 0;
     string data = base64_png(image->filename, imgWidth, imgHeight);
 
-    f << "  <image id='__png_" << int2str(i) << "' x='" << image->x + xPX - clad->prependYears*yrPX << "' y='" << image->y + topOffset << "' width='" << imgWidth << "' height='" << imgHeight << "'\n"
+    xloc -= imgWidth;
+    f << "  <image id='__png_" << int2str(i) << "' x='" << xloc + xPX - clad->prependYears*yrPX << "' y='" << yloc << "' width='" << imgWidth << "' height='" << imgHeight << "'\n"
       << "    xlink:href='data:image/png;base64," << data << "' />\n";
   }
   f << "</g>\n";
@@ -597,10 +609,22 @@ void GeneratorSVG::writeData(Cladogram * clad, OutputFile & out) {
   f << "\n<g inkscape:label='Included SVG Images' inkscape:groupmode='layer' id='layer_included_svg'>\n";
   for(int i = 0; i < (int)clad->includeSVG.size(); ++i) {
 
-    int void1, void2;
+    int imgWidth, imgHeight;
     image = clad->includeSVG[i];
-    string data = SVG_body(image->filename, void1, void2);
-    f << "  <g transform='translate(" << image->x + xPX - clad->prependYears*yrPX << "," << image->y + topOffset << ")' >\n"
+    int xloc = image->x;
+    int yloc = image->y;
+    if(image->node != "") {
+      for(int k=0; k<(int)clad->nodes.size(); k++) {
+        n = clad->nodes[k];
+        if(n->name == image->node) {
+          xloc += datePX(n->start, clad);
+          yloc += n->offset * oPX;
+        }
+      }
+    }
+    string data = SVG_body(image->filename, imgWidth, imgHeight);
+    xloc -= imgWidth;
+    f << "  <g transform='translate(" << xloc + xPX - clad->prependYears*yrPX << "," << yloc + topOffset << ")' >\n"
       << data
       << "  </g>\n";
 

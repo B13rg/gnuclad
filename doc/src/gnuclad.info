@@ -1,12 +1,7 @@
-This is gnuclad.info, produced by makeinfo version 4.13 from
+This is gnuclad.info, produced by makeinfo version 6.1 from
 gnuclad.texi.
 
-INFO-DIR-SECTION Graphics
-START-INFO-DIR-ENTRY
-* gnuclad: (gnuclad).                cladogram generators
-END-INFO-DIR-ENTRY
-
-   This is a manual for gnuclad
+This is a manual for gnuclad
 
    Copyright (C) 2010-2012 Donjan Rodic <donjan (at) dyx (dot) ch>
 
@@ -16,13 +11,18 @@ END-INFO-DIR-ENTRY
      Foundation; with no Invariant Sections, no Front-Cover Texts, and
      no Back-Cover Texts.
 
+INFO-DIR-SECTION Graphics
+START-INFO-DIR-ENTRY
+* gnuclad: (gnuclad).                cladogram generators
+END-INFO-DIR-ENTRY
+
 
-File: gnuclad.info,  Node: Top,  Next: About,  Up: (dir)
+File: gnuclad.info,  Node: Top,  Next: GNU Free Documentation License,  Up: (dir)
 
 gnuclad cladogram generator
 ***************************
 
-This is the Texinfo manual for gnuclad HEAD (15 September 2012)
+This is the Texinfo manual for gnuclad HEAD (27 February 2020)
 
 * Menu:
 
@@ -32,14 +32,13 @@ This is the Texinfo manual for gnuclad HEAD (15 September 2012)
 * Config Options:: An overview
 * FAQ:: Frequently Asked Questions
 * Programming:: Contribute to the project
-
 * Menu:
 
 * GNU Free Documentation License::
 * Index:: Anchor index
 
 
-File: gnuclad.info,  Node: About,  Next: Usage,  Prev: Top,  Up: Top
+File: gnuclad.info,  Node: About,  Next: Usage,  Up: Top
 
 1 About
 *******
@@ -48,7 +47,7 @@ File: gnuclad.info,  Node: About,  Next: Usage,  Prev: Top,  Up: Top
 ===========
 
 The most recent version of gnuclad and it's documentation can be
-downloaded at `https://launchpad.net/gnuclad'.
+downloaded at <https://launchpad.net/gnuclad>.
 
    You can also file bugs and contact the developers there.
 
@@ -71,9 +70,9 @@ in the 'doc' folder.
 1.4 gnuclad usage
 =================
 
-GNU/Linux distro timeline: `http://futurist.se/gldt/'
+GNU/Linux distro timeline: <http://futurist.se/gldt/>
 
-   Stéphane List Development Timeline: `http://slist.lilotux.net/prog/'
+   Stéphane List Development Timeline: <http://slist.lilotux.net/prog/>
 
 
 File: gnuclad.info,  Node: Usage,  Next: Usage Tips,  Prev: About,  Up: Top
@@ -90,7 +89,7 @@ Supported input formats are: *CSV* spreadsheets, *directories*
 
    A sample CSV file is distributed together with gnuclad.  It can be
 openend with any spreadsheet program; the field separator is comma (,)
-and the text delimiter is double quote ("). Please make sure you save
+and the text delimiter is double quote (").  Please make sure you save
 it that way.
 
    The conf file can be edited with any text editor of your choice.
@@ -108,9 +107,8 @@ it that way.
 
 gnuclad is built with the GNU toolchain.  These tools are included in
 most GNU/Linux and BSD distributions and can be obtained from the Xcode
-developer package on OSX.  On Windows, compilation works flawlessly
-with MinGW & MSYS.  Other build systems may work but have not been
-tested.
+developer package on OSX. On Windows, compilation works flawlessly with
+MinGW & MSYS. Other build systems may work but have not been tested.
 
    To compile gnuclad, open the gnuclad main folder in a terminal and
 type:
@@ -157,10 +155,10 @@ output file.
 3.2 Input: any => Output: CSV
 =============================
 
-All nodes with a starting date newer than endOfTime (usually the
-current date) will be ignored.  All nodes with a stopping date newer or
-the same as endOfTime will have their stopping date removed (unset ==
-"still alive").
+All nodes with a starting date newer than endOfTime (usually the current
+date) will be ignored.  All nodes with a stopping date newer or the same
+as endOfTime will have their stopping date removed (unset == "still
+alive").
 
    For best results with CSV output, the recommended optimisation is 0
 and treeMode conf setting is "lower inverse":
@@ -176,10 +174,10 @@ The optimisation parameter can be set to a value between 0 and 99.  0
 turns off optimisation completely while 99 tries to stuff the resulting
 image closely together.
 
-   The first digit refers to the optimisation factor for isolated
-nodes, those which are not part of the tree. The higher it is, the more
-aggressively they will be appended to each other.  The second digit
-sets the tree optimisation. Higher values will try to cramp the tree
+   The first digit refers to the optimisation factor for isolated nodes,
+those which are not part of the tree.  The higher it is, the more
+aggressively they will be appended to each other.  The second digit sets
+the tree optimisation.  Higher values will try to cramp the tree
 together more than lower ones.
 
    The current mapping looks as follows (the exact parametrisation may
@@ -203,6 +201,7 @@ the lines above it in the same group.
      7x  - pass over trees of size <= 50
      8x  - pass over any tree
 
+
 3.4 Optimisation - additional info
 ==================================
 
@@ -214,6 +213,7 @@ The current optimisation is greedy and therefore not exactly stellar.
              ___  ->      _______
          _______  ->
          ___      ->
+
    But a slightly different map doesn't (a human can easily reduce this
 to 2):
                 4 -> 3
@@ -246,8 +246,8 @@ gnuclad's output:
      gnuclad input.csv config-file.conf
      gnuclad input.csv conf another.conf
    The last line will use the settings as available from 'another.conf'
-and complement them with the built-in defaults.  The 'input.csv' will
-be ignored. It can be an empty dummy file.
+and complement them with the built-in defaults.  The 'input.csv' will be
+ignored.  It can be an empty dummy file.
 
 4.3 Detail
 ==========
@@ -449,6 +449,7 @@ be ignored. It can be an empty dummy file.
      dir_domainSize = 0
      dir_domainIntensity = 3
 
+
 
 File: gnuclad.info,  Node: FAQ,  Next: Programming,  Prev: Config Options,  Up: Top
 
@@ -472,7 +473,7 @@ File: gnuclad.info,  Node: Programming,  Next: GNU Free Documentation License,  
 *************
 
 Here's a small documentation if you wish to hack gnuclad.  Patches are
-always welcome. New parsers/generators even more so!
+always welcome.  New parsers/generators even more so!
 
 * Menu:
 
@@ -485,20 +486,19 @@ always welcome. New parsers/generators even more so!
 
 File: gnuclad.info,  Node: Classes,  Next: Helpers and Utilities,  Up: Programming
 
-
-
 6.1 Classes
 ===========
 
 A breakdown of the classes used in gnuclad.  Only the relevant public
 parts are shown, first the members and then the constructors & methods.
 
-The most important class is the *Cladogram*. It is instantiated by a
+
+   The most important class is the *Cladogram*.  It is instantiated by a
 single object which describes the whole timeline and will be passed to
-the parser/generator.  The Cladogram usually doesn't need to be
-accessed by the *note parser: Writing a parser, except for the add***
-functions.  The *note generator: Writing a generator. is meant to make
-use of the data vectors.
+the parser/generator.  The Cladogram usually doesn't need to be accessed
+by the *note parser: Writing a parser, except for the add*** functions.
+The *note generator: Writing a generator. is meant to make use of the
+data vectors.
 
      class Cladogram
        std::vector<Node *> nodes;
@@ -516,7 +516,8 @@ use of the data vectors.
 Configuration Options, as well as *note additional functions: Helpers
 and Utilities.
 
-The second most important class, a single *Node*.  It should be
+
+   The second most important class, a single *Node*.  It should be
 initialised only with the addNode() method:
        Node * Cladogram::addNode(std::string tname);
    The 'offset' is meant for the generator (it can be ignored by the
@@ -534,7 +535,8 @@ parser).
 
        void addNameChange(std::string newName, Date date, std::string description);
 
-A  *Color* object can be initialised either with RGB (1-255) or a hex
+
+   A *Color* object can be initialised either with RGB (1-255) or a hex
 color value (#abc or #abcdef).  It will automatically convert and hold
 the other value too.
      class Color
@@ -546,7 +548,8 @@ the other value too.
        Color(int tred, int tgreen, int tblue);
        Color(std::string thex);
 
-The *Date* object can be initialised either with year,month,day or
+
+   The *Date* object can be initialised either with year,month,day or
 year,month or year integer parameters; or with a string in the format
 "y.m.d" or "y.m" or "y", where the letters can be arbitrary (also
 negative) integers.
@@ -569,7 +572,8 @@ day settings, and should be ignored by the parser.
        bool operator==(Date d);
        Date operator+(const Date d);
 
-The *Image* object is to be initialised only with addImage() in the
+
+   The *Image* object is to be initialised only with addImage() in the
 parser:
        Image * Cladogram::addImage(std::string tname, std::vector<Image *> &vector);
    The parser has to specify the vector it wants the image to be loaded
@@ -579,9 +583,11 @@ to the generator unchanged and contains three members.
        std::string filename;
        int x;
        int y;
+       std::string node;
 
-The *NameChange* is to be initialised only with addNameChange() in the
-parser:
+
+   The *NameChange* is to be initialised only with addNameChange() in
+the parser:
        void Node::addNameChange(std::string newName, Date date,
                                 std::string description);
    The generator can access the nameChanges vector of the Node, making
@@ -591,7 +597,9 @@ use of the three members.
        Date date;
        std::string description;
 
-The *Domain* is to be initialised only with addDomain() in the parser:
+
+   The *Domain* is to be initialised only with addDomain() in the
+parser:
        Domain * Cladogram::addDomain(std::string tname);
    The 'offsetA' and 'offsetB' are meant for the generator (they can be
 ignored by the parser).
@@ -602,7 +610,8 @@ ignored by the parser).
        int offsetA;
        int offsetB;
 
-The *Connector* is to be initialised only with addConnector() in the
+
+   The *Connector* is to be initialised only with addConnector() in the
 parser:
        Connector * Cladogram::addConnector();
    The 'offsetA' and 'offsetB' are meant for the generator (they can be
@@ -617,7 +626,8 @@ ignored by the parser).
        int offsetA;
        int offsetB;
 
-The *InputFile* serves as a container to pass data to the parser.
+
+   The *InputFile* serves as a container to pass data to the parser.
      class InputFile:
        std::ifstream * p;
        std::string name;
@@ -627,8 +637,6 @@ The *InputFile* serves as a container to pass data to the parser.
 
 
 File: gnuclad.info,  Node: Helpers and Utilities,  Next: Configuration Options,  Prev: Classes,  Up: Programming
-
-
 
 6.2 Additional Cladogram functions
 ==================================
@@ -651,7 +659,7 @@ needed:
 
    The following method (usually executed with clad->nodesPreorder())
 will change the order of the nodes vector such that every parent will
-occur after all it's children, topologically sorted. This is useful for
+occur after all it's children, topologically sorted.  This is useful for
 preventing line overlaps in SVG output.
      void nodesPreorder();
 
@@ -659,7 +667,7 @@ preventing line overlaps in SVG output.
 ====================
 
 Here's an additional list of small helpers you can get when including
-'gnuclad.h'.  This is meant as a quick overview. For descriptions, take
+'gnuclad.h'.  This is meant as a quick overview.  For descriptions, take
 a look at the 'gnuclad-helpers.cpp' source file.
 
    void pressEnter();
@@ -679,10 +687,10 @@ a look at the 'gnuclad-helpers.cpp' source file.
    void safeClose(std::ofstream * fp);
 
    void explode(const std::string str, const char delimiter,
- std::vector<std::string> * v);
+std::vector<std::string> * v);
 
-   void explodeSafely(const std::string str, const char delimiter,
-             const char toggle, std::vector<std::string> * v);
+   void explodeSafely(const std::string str, const char delimiter, const
+char toggle, std::vector<std::string> * v);
 
    std::string findReplace(std::string str, std::string find,
 std::string replace);
@@ -704,34 +712,25 @@ std::string replace);
 
 File: gnuclad.info,  Node: Configuration Options,  Next: Writing a parser,  Prev: Helpers and Utilities,  Up: Programming
 
-
-
 6.4 Adding configuration options
 ================================
 
 When adding a configuration option, be sure to implement it at least in
 the following places:
    * src/gnuclad.h: members of the Cladogram class (declaration)
-
    * src/gnuclad-cladogram.cpp: in the constructor of the Cladogram
-     object                                  (initialisation / default
-     setting)
-
+     object (initialisation / default setting)
    * src/gnuclad-cladogram.cpp: in the parseOptions function
-
    * src/generator/conf.cpp: output and description of the new option
-
    * doc/src/gnuclad-config.texi: at the bottom, insert the new config
-     file                                    created by using 'conf' as
-     output
-
+     file created by using 'conf' as output
    * third party gnuclad configuration files you have access to
 
 6.5 Using configuration options
 ===============================
 
-The options are usually read by a separate configuration parser, but
-can be modified by the data input parser if necessary and should be
+The options are usually read by a separate configuration parser, but can
+be modified by the data input parser if necessary and should be
 implemented by the generator as completely as possible.  The option
 names in the config file are identical to the variable names and can be
 accessed via the cladogram pointer:
@@ -746,8 +745,6 @@ OPTIONS will take you straight to the declarations.
 
 
 File: gnuclad.info,  Node: Writing a parser,  Next: Writing a generator,  Prev: Configuration Options,  Up: Programming
-
-
 
 6.6 Adding a parser
 ===================
@@ -786,8 +783,8 @@ Your parser is called only by this function:
    Therefore it should implement the following one:
        void ParserXXX::parseData(Cladogram * clad, InputFile & in) { ... }
 
-   The InputFile object holds a correctly opened input file. It also
-holds the file name in case your parser needs it. You can use the
+   The InputFile object holds a correctly opened input file.  It also
+holds the file name in case your parser needs it.  You can use the
 object like this:
        ifstream * fp = in.p;
        // or
@@ -797,18 +794,19 @@ object like this:
 
    The cladogram pointer is an empty Cladogram object that you have to
 fill.  You should try to fill as much of it as possible in order to
-increase the information pool for the output generator. Note that not
+increase the information pool for the output generator.  Note that not
 all generators will make use of every piece of data, and it all depends
 on the options the user has set; the more information the better.
 
    If you cannot fill a field, leave it empty and the generators will
-ignore it.  All measures (height, thickness, ...) are "generic units".
+ignore it.  All measures (height, thickness, ...)  are "generic units".
 
-   Objects created with the add*** functions will be allocated and
-later deleted automatically.  It is important to use those functions
-for objects you wish to pass on to the generator.
+   Objects created with the add*** functions will be allocated and later
+deleted automatically.  It is important to use those functions for
+objects you wish to pass on to the generator.
 
-Adding a Node:
+
+   Adding a Node:
      #include "../gnuclad.h"
      #include "parserXXX.h"
      void ParserXXX::parseData(Cladogram * clad, InputFile & in) {
@@ -824,7 +822,8 @@ Adding a Node:
 
      }
 
-Adding a Connector (note that fromName and toName are expected to be
+
+   Adding a Connector (note that fromName and toName are expected to be
 existing Node names at the end of the parser routine - you'll get an
 error otherwise):
        Connector * c = clad->addConnector();
@@ -835,26 +834,29 @@ error otherwise):
        c->thickness = 3;
        c->color = Color(12,255,0);
 
-Adding a domain (note that the initialising name is expected to be an
+
+   Adding a domain (note that the initialising name is expected to be an
 existing Node name at the end of the parser routine - you'll get an
 error otherwise):
        Domain * d = clad->addDomain("MyFirstNode");
        d->color = Color("#abc");
        d->intensity = 15;
 
-Adding an image (currently supported: SVG and PNG):
+
+   Adding an image (currently supported: SVG and PNG) If the node
+property is set, the location origin will be that node's coordinates:
        Image * image = clad->addImage("picture.svg", clad->includeSVG);
        image->x = 100;
        image->y = 50;
+       image->node = "";
 
        Image * image = clad->addImage("somewhere/picture.png", clad->includePNG);
        image->x = 10;
        image->y = 500;
+       image-> = "example";
 
 
 File: gnuclad.info,  Node: Writing a generator,  Prev: Writing a parser,  Up: Programming
-
-
 
 6.8 Adding a generator
 ======================
@@ -893,8 +895,8 @@ Your generator is called only by this function:
    Therefore it should implement the following one:
        void generatorXXX::writeData(Cladogram * clad, OutputFile & out) { ... }
 
-   The OutputFile object holds a correctly opened output file. It also
-holds the file name in case your generator needs it. You can use the
+   The OutputFile object holds a correctly opened output file.  It also
+holds the file name in case your generator needs it.  You can use the
 object like this:
        ofstream * fp = out.p;
        // or
@@ -914,7 +916,7 @@ possible.  This can be done by iterating over its data vectors:
 configuration options: Configuration Options. the Cladogram contains.
 
    If a variable is empty, try to handle it as gracefully as possible.
-All measures (height, thickness, ...) are "generic units".
+All measures (height, thickness, ...)  are "generic units".
 
    Example:
      #include "../gnuclad.h"
@@ -940,7 +942,7 @@ All measures (height, thickness, ...) are "generic units".
      }
 
 
-File: gnuclad.info,  Node: GNU Free Documentation License,  Next: Index,  Prev: Programming,  Up: Top
+File: gnuclad.info,  Node: GNU Free Documentation License,  Next: Index,  Prev: Top,  Up: Top
 
 Appendix A GNU Free Documentation License
 *****************************************
@@ -948,7 +950,7 @@ Appendix A GNU Free Documentation License
                      Version 1.3, 3 November 2008
 
      Copyright (C) 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
-     `http://fsf.org/'
+     <http://fsf.org/>
 
      Everyone is permitted to copy and distribute verbatim copies
      of this license document, but changing it is not allowed.
@@ -973,21 +975,21 @@ Appendix A GNU Free Documentation License
      free program should come with manuals providing the same freedoms
      that the software does.  But this License is not limited to
      software manuals; it can be used for any textual work, regardless
-     of subject matter or whether it is published as a printed book.
-     We recommend this License principally for works whose purpose is
+     of subject matter or whether it is published as a printed book.  We
+     recommend this License principally for works whose purpose is
      instruction or reference.
 
   1. APPLICABILITY AND DEFINITIONS
 
      This License applies to any manual or other work, in any medium,
-     that contains a notice placed by the copyright holder saying it
-     can be distributed under the terms of this License.  Such a notice
+     that contains a notice placed by the copyright holder saying it can
+     be distributed under the terms of this License.  Such a notice
      grants a world-wide, royalty-free license, unlimited in duration,
      to use that work under the conditions stated herein.  The
      "Document", below, refers to any such manual or work.  Any member
-     of the public is a licensee, and is addressed as "you".  You
-     accept the license if you copy, modify or distribute the work in a
-     way requiring permission under copyright law.
+     of the public is a licensee, and is addressed as "you".  You accept
+     the license if you copy, modify or distribute the work in a way
+     requiring permission under copyright law.
 
      A "Modified Version" of the Document means any work containing the
      Document or a portion of it, either copied verbatim, or with
@@ -1005,12 +1007,12 @@ Appendix A GNU Free Documentation License
      regarding them.
 
      The "Invariant Sections" are certain Secondary Sections whose
-     titles are designated, as being those of Invariant Sections, in
-     the notice that says that the Document is released under this
-     License.  If a section does not fit the above definition of
-     Secondary then it is not allowed to be designated as Invariant.
-     The Document may contain zero Invariant Sections.  If the Document
-     does not identify any Invariant Sections then there are none.
+     titles are designated, as being those of Invariant Sections, in the
+     notice that says that the Document is released under this License.
+     If a section does not fit the above definition of Secondary then it
+     is not allowed to be designated as Invariant.  The Document may
+     contain zero Invariant Sections.  If the Document does not identify
+     any Invariant Sections then there are none.
 
      The "Cover Texts" are certain short passages of text that are
      listed, as Front-Cover Texts or Back-Cover Texts, in the notice
@@ -1021,27 +1023,27 @@ Appendix A GNU Free Documentation License
      A "Transparent" copy of the Document means a machine-readable copy,
      represented in a format whose specification is available to the
      general public, that is suitable for revising the document
-     straightforwardly with generic text editors or (for images
-     composed of pixels) generic paint programs or (for drawings) some
-     widely available drawing editor, and that is suitable for input to
-     text formatters or for automatic translation to a variety of
-     formats suitable for input to text formatters.  A copy made in an
-     otherwise Transparent file format whose markup, or absence of
-     markup, has been arranged to thwart or discourage subsequent
-     modification by readers is not Transparent.  An image format is
-     not Transparent if used for any substantial amount of text.  A
-     copy that is not "Transparent" is called "Opaque".
+     straightforwardly with generic text editors or (for images composed
+     of pixels) generic paint programs or (for drawings) some widely
+     available drawing editor, and that is suitable for input to text
+     formatters or for automatic translation to a variety of formats
+     suitable for input to text formatters.  A copy made in an otherwise
+     Transparent file format whose markup, or absence of markup, has
+     been arranged to thwart or discourage subsequent modification by
+     readers is not Transparent.  An image format is not Transparent if
+     used for any substantial amount of text.  A copy that is not
+     "Transparent" is called "Opaque".
 
      Examples of suitable formats for Transparent copies include plain
      ASCII without markup, Texinfo input format, LaTeX input format,
-     SGML or XML using a publicly available DTD, and
-     standard-conforming simple HTML, PostScript or PDF designed for
-     human modification.  Examples of transparent image formats include
-     PNG, XCF and JPG.  Opaque formats include proprietary formats that
-     can be read and edited only by proprietary word processors, SGML or
-     XML for which the DTD and/or processing tools are not generally
-     available, and the machine-generated HTML, PostScript or PDF
-     produced by some word processors for output purposes only.
+     SGML or XML using a publicly available DTD, and standard-conforming
+     simple HTML, PostScript or PDF designed for human modification.
+     Examples of transparent image formats include PNG, XCF and JPG.
+     Opaque formats include proprietary formats that can be read and
+     edited only by proprietary word processors, SGML or XML for which
+     the DTD and/or processing tools are not generally available, and
+     the machine-generated HTML, PostScript or PDF produced by some word
+     processors for output purposes only.
 
      The "Title Page" means, for a printed book, the title page itself,
      plus such following pages as are needed to hold, legibly, the
@@ -1079,8 +1081,8 @@ Appendix A GNU Free Documentation License
      may not use technical measures to obstruct or control the reading
      or further copying of the copies you make or distribute.  However,
      you may accept compensation in exchange for copies.  If you
-     distribute a large enough number of copies you must also follow
-     the conditions in section 3.
+     distribute a large enough number of copies you must also follow the
+     conditions in section 3.
 
      You may also lend copies, under the same conditions stated above,
      and you may publicly display copies.
@@ -1094,12 +1096,11 @@ Appendix A GNU Free Documentation License
      these Cover Texts: Front-Cover Texts on the front cover, and
      Back-Cover Texts on the back cover.  Both covers must also clearly
      and legibly identify you as the publisher of these copies.  The
-     front cover must present the full title with all words of the
-     title equally prominent and visible.  You may add other material
-     on the covers in addition.  Copying with changes limited to the
-     covers, as long as they preserve the title of the Document and
-     satisfy these conditions, can be treated as verbatim copying in
-     other respects.
+     front cover must present the full title with all words of the title
+     equally prominent and visible.  You may add other material on the
+     covers in addition.  Copying with changes limited to the covers, as
+     long as they preserve the title of the Document and satisfy these
+     conditions, can be treated as verbatim copying in other respects.
 
      If the required texts for either cover are too voluminous to fit
      legibly, you should put the first ones listed (as many as fit
@@ -1107,40 +1108,39 @@ Appendix A GNU Free Documentation License
      adjacent pages.
 
      If you publish or distribute Opaque copies of the Document
-     numbering more than 100, you must either include a
-     machine-readable Transparent copy along with each Opaque copy, or
-     state in or with each Opaque copy a computer-network location from
-     which the general network-using public has access to download
-     using public-standard network protocols a complete Transparent
-     copy of the Document, free of added material.  If you use the
-     latter option, you must take reasonably prudent steps, when you
-     begin distribution of Opaque copies in quantity, to ensure that
-     this Transparent copy will remain thus accessible at the stated
-     location until at least one year after the last time you
-     distribute an Opaque copy (directly or through your agents or
-     retailers) of that edition to the public.
+     numbering more than 100, you must either include a machine-readable
+     Transparent copy along with each Opaque copy, or state in or with
+     each Opaque copy a computer-network location from which the general
+     network-using public has access to download using public-standard
+     network protocols a complete Transparent copy of the Document, free
+     of added material.  If you use the latter option, you must take
+     reasonably prudent steps, when you begin distribution of Opaque
+     copies in quantity, to ensure that this Transparent copy will
+     remain thus accessible at the stated location until at least one
+     year after the last time you distribute an Opaque copy (directly or
+     through your agents or retailers) of that edition to the public.
 
      It is requested, but not required, that you contact the authors of
-     the Document well before redistributing any large number of
-     copies, to give them a chance to provide you with an updated
-     version of the Document.
+     the Document well before redistributing any large number of copies,
+     to give them a chance to provide you with an updated version of the
+     Document.
 
   4. MODIFICATIONS
 
      You may copy and distribute a Modified Version of the Document
      under the conditions of sections 2 and 3 above, provided that you
-     release the Modified Version under precisely this License, with
-     the Modified Version filling the role of the Document, thus
-     licensing distribution and modification of the Modified Version to
-     whoever possesses a copy of it.  In addition, you must do these
-     things in the Modified Version:
+     release the Modified Version under precisely this License, with the
+     Modified Version filling the role of the Document, thus licensing
+     distribution and modification of the Modified Version to whoever
+     possesses a copy of it.  In addition, you must do these things in
+     the Modified Version:
 
        A. Use in the Title Page (and on the covers, if any) a title
-          distinct from that of the Document, and from those of
-          previous versions (which should, if there were any, be listed
-          in the History section of the Document).  You may use the
-          same title as a previous version if the original publisher of
-          that version gives permission.
+          distinct from that of the Document, and from those of previous
+          versions (which should, if there were any, be listed in the
+          History section of the Document).  You may use the same title
+          as a previous version if the original publisher of that
+          version gives permission.
 
        B. List on the Title Page, as authors, one or more persons or
           entities responsible for authorship of the modifications in
@@ -1170,31 +1170,30 @@ Appendix A GNU Free Documentation License
 
        I. Preserve the section Entitled "History", Preserve its Title,
           and add to it an item stating at least the title, year, new
-          authors, and publisher of the Modified Version as given on
-          the Title Page.  If there is no section Entitled "History" in
-          the Document, create one stating the title, year, authors,
-          and publisher of the Document as given on its Title Page,
-          then add an item describing the Modified Version as stated in
-          the previous sentence.
+          authors, and publisher of the Modified Version as given on the
+          Title Page.  If there is no section Entitled "History" in the
+          Document, create one stating the title, year, authors, and
+          publisher of the Document as given on its Title Page, then add
+          an item describing the Modified Version as stated in the
+          previous sentence.
 
        J. Preserve the network location, if any, given in the Document
           for public access to a Transparent copy of the Document, and
           likewise the network locations given in the Document for
-          previous versions it was based on.  These may be placed in
-          the "History" section.  You may omit a network location for a
-          work that was published at least four years before the
-          Document itself, or if the original publisher of the version
-          it refers to gives permission.
+          previous versions it was based on.  These may be placed in the
+          "History" section.  You may omit a network location for a work
+          that was published at least four years before the Document
+          itself, or if the original publisher of the version it refers
+          to gives permission.
 
        K. For any section Entitled "Acknowledgements" or "Dedications",
-          Preserve the Title of the section, and preserve in the
-          section all the substance and tone of each of the contributor
+          Preserve the Title of the section, and preserve in the section
+          all the substance and tone of each of the contributor
           acknowledgements and/or dedications given therein.
 
-       L. Preserve all the Invariant Sections of the Document,
-          unaltered in their text and in their titles.  Section numbers
-          or the equivalent are not considered part of the section
-          titles.
+       L. Preserve all the Invariant Sections of the Document, unaltered
+          in their text and in their titles.  Section numbers or the
+          equivalent are not considered part of the section titles.
 
        M. Delete any section Entitled "Endorsements".  Such a section
           may not be included in the Modified Version.
@@ -1207,11 +1206,11 @@ Appendix A GNU Free Documentation License
 
      If the Modified Version includes new front-matter sections or
      appendices that qualify as Secondary Sections and contain no
-     material copied from the Document, you may at your option
-     designate some or all of these sections as invariant.  To do this,
-     add their titles to the list of Invariant Sections in the Modified
-     Version's license notice.  These titles must be distinct from any
-     other section titles.
+     material copied from the Document, you may at your option designate
+     some or all of these sections as invariant.  To do this, add their
+     titles to the list of Invariant Sections in the Modified Version's
+     license notice.  These titles must be distinct from any other
+     section titles.
 
      You may add a section Entitled "Endorsements", provided it contains
      nothing but endorsements of your Modified Version by various
@@ -1220,15 +1219,15 @@ Appendix A GNU Free Documentation License
      definition of a standard.
 
      You may add a passage of up to five words as a Front-Cover Text,
-     and a passage of up to 25 words as a Back-Cover Text, to the end
-     of the list of Cover Texts in the Modified Version.  Only one
-     passage of Front-Cover Text and one of Back-Cover Text may be
-     added by (or through arrangements made by) any one entity.  If the
-     Document already includes a cover text for the same cover,
-     previously added by you or by arrangement made by the same entity
-     you are acting on behalf of, you may not add another; but you may
-     replace the old one, on explicit permission from the previous
-     publisher that added the old one.
+     and a passage of up to 25 words as a Back-Cover Text, to the end of
+     the list of Cover Texts in the Modified Version.  Only one passage
+     of Front-Cover Text and one of Back-Cover Text may be added by (or
+     through arrangements made by) any one entity.  If the Document
+     already includes a cover text for the same cover, previously added
+     by you or by arrangement made by the same entity you are acting on
+     behalf of, you may not add another; but you may replace the old
+     one, on explicit permission from the previous publisher that added
+     the old one.
 
      The author(s) and publisher(s) of the Document do not by this
      License give permission to use their names for publicity for or to
@@ -1238,8 +1237,8 @@ Appendix A GNU Free Documentation License
 
      You may combine the Document with other documents released under
      this License, under the terms defined in section 4 above for
-     modified versions, provided that you include in the combination
-     all of the Invariant Sections of all of the original documents,
+     modified versions, provided that you include in the combination all
+     of the Invariant Sections of all of the original documents,
      unmodified, and list them all as Invariant Sections of your
      combined work in its license notice, and that you preserve all
      their Warranty Disclaimers.
@@ -1266,20 +1265,20 @@ Appendix A GNU Free Documentation License
      documents released under this License, and replace the individual
      copies of this License in the various documents with a single copy
      that is included in the collection, provided that you follow the
-     rules of this License for verbatim copying of each of the
-     documents in all other respects.
+     rules of this License for verbatim copying of each of the documents
+     in all other respects.
 
      You may extract a single document from such a collection, and
      distribute it individually under this License, provided you insert
-     a copy of this License into the extracted document, and follow
-     this License in all other respects regarding verbatim copying of
-     that document.
+     a copy of this License into the extracted document, and follow this
+     License in all other respects regarding verbatim copying of that
+     document.
 
   7. AGGREGATION WITH INDEPENDENT WORKS
 
      A compilation of the Document or its derivatives with other
-     separate and independent documents or works, in or on a volume of
-     a storage or distribution medium, is called an "aggregate" if the
+     separate and independent documents or works, in or on a volume of a
+     storage or distribution medium, is called an "aggregate" if the
      copyright resulting from the compilation is not used to limit the
      legal rights of the compilation's users beyond what the individual
      works permit.  When the Document is included in an aggregate, this
@@ -1324,8 +1323,8 @@ Appendix A GNU Free Documentation License
 
      However, if you cease all violation of this License, then your
      license from a particular copyright holder is reinstated (a)
-     provisionally, unless and until the copyright holder explicitly
-     and finally terminates your license, and (b) permanently, if the
+     provisionally, unless and until the copyright holder explicitly and
+     finally terminates your license, and (b) permanently, if the
      copyright holder fails to notify you of the violation by some
      reasonable means prior to 60 days after the cessation.
 
@@ -1337,33 +1336,33 @@ Appendix A GNU Free Documentation License
      after your receipt of the notice.
 
      Termination of your rights under this section does not terminate
-     the licenses of parties who have received copies or rights from
-     you under this License.  If your rights have been terminated and
-     not permanently reinstated, receipt of a copy of some or all of
-     the same material does not give you any rights to use it.
+     the licenses of parties who have received copies or rights from you
+     under this License.  If your rights have been terminated and not
+     permanently reinstated, receipt of a copy of some or all of the
+     same material does not give you any rights to use it.
 
- 10. FUTURE REVISIONS OF THIS LICENSE
+  10. FUTURE REVISIONS OF THIS LICENSE
 
      The Free Software Foundation may publish new, revised versions of
      the GNU Free Documentation License from time to time.  Such new
      versions will be similar in spirit to the present version, but may
      differ in detail to address new problems or concerns.  See
-     `http://www.gnu.org/copyleft/'.
+     <http://www.gnu.org/copyleft/>.
 
      Each version of the License is given a distinguishing version
      number.  If the Document specifies that a particular numbered
      version of this License "or any later version" applies to it, you
      have the option of following the terms and conditions either of
      that specified version or of any later version that has been
-     published (not as a draft) by the Free Software Foundation.  If
-     the Document does not specify a version number of this License,
-     you may choose any version ever published (not as a draft) by the
-     Free Software Foundation.  If the Document specifies that a proxy
-     can decide which future versions of this License can be used, that
+     published (not as a draft) by the Free Software Foundation.  If the
+     Document does not specify a version number of this License, you may
+     choose any version ever published (not as a draft) by the Free
+     Software Foundation.  If the Document specifies that a proxy can
+     decide which future versions of this License can be used, that
      proxy's public statement of acceptance of a version permanently
      authorizes you to choose that version for the Document.
 
- 11. RELICENSING
+  11. RELICENSING
 
      "Massive Multiauthor Collaboration Site" (or "MMC Site") means any
      World Wide Web server that publishes copyrightable works and also
@@ -1393,7 +1392,6 @@ Appendix A GNU Free Documentation License
      site under CC-BY-SA on the same site at any time before August 1,
      2009, provided the MMC is eligible for relicensing.
 
-
 ADDENDUM: How to use this License for your documents
 ====================================================
 
@@ -1410,7 +1408,7 @@ notices just after the title page:
        Free Documentation License''.
 
    If you have Invariant Sections, Front-Cover Texts and Back-Cover
-Texts, replace the "with...Texts." line with this:
+Texts, replace the "with...Texts."  line with this:
 
          with the Invariant Sections being LIST THEIR TITLES, with
          the Front-Cover Texts being LIST, and with the Back-Cover Texts
@@ -1421,9 +1419,9 @@ combination of the three, merge those two alternatives to suit the
 situation.
 
    If your document contains nontrivial examples of program code, we
-recommend releasing these examples in parallel under your choice of
-free software license, such as the GNU General Public License, to
-permit their use in free software.
+recommend releasing these examples in parallel under your choice of free
+software license, such as the GNU General Public License, to permit
+their use in free software.
 
 
 File: gnuclad.info,  Node: Index,  Prev: GNU Free Documentation License,  Up: Top
@@ -1434,35 +1432,35 @@ Index
  [index ]
 * Menu:
 
-* Detailed configuration options:        Config Options.       (line 26)
+* Detailed configuration options:        Config Options.       (line 25)
 * FAQ:                                   FAQ.                  (line  6)
-* Getting Started:                       Usage.                (line 28)
+* Getting Started:                       Usage.                (line 27)
 
  [index ]
 * Menu:
 
 * Additional Cladogram functions:        Helpers and Utilities.
-                                                               (line  5)
-* Classes:                               Classes.              (line  5)
+                                                               (line  3)
+* Classes:                               Classes.              (line  3)
 * Helper functions:                      Helpers and Utilities.
-                                                               (line 30)
+                                                               (line 27)
 
 
 
 Tag Table:
-Node: Top604
-Node: About1047
-Node: Usage1919
-Node: Usage Tips3632
-Node: Config Options6725
-Node: FAQ13980
-Node: Programming14600
-Node: Classes14976
-Node: Helpers and Utilities19591
-Node: Configuration Options21879
-Node: Writing a parser23420
-Node: Writing a generator26961
-Node: GNU Free Documentation License29596
-Node: Index54762
+Node: Top600
+Node: About1066
+Node: Usage1926
+Node: Usage Tips3638
+Node: Config Options6735
+Node: FAQ13992
+Node: Programming14612
+Node: Classes14989
+Node: Helpers and Utilities19662
+Node: Configuration Options21936
+Node: Writing a parser23392
+Node: Writing a generator27085
+Node: GNU Free Documentation License29721
+Node: Index54860
 
 End Tag Table

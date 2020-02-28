@@ -75,6 +75,7 @@ class Image {
   std::string filename;
   int x;
   int y;
+  std::string node;
 
   Image();
   Image(std::string tfilename);

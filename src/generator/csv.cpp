@@ -36,7 +36,7 @@ void GeneratorCSV::writeData(Cladogram * clad, OutputFile & out) {
   int fixedFieldsNode = 8;
   int fixedFieldsConnector = 7;
   int fixedFieldsDomain = 4;
-  int fixedFieldsImage = 4;
+  int fixedFieldsImage = 5;
 
   int width = fixedFieldsNode;
   for(int i = 0; i < (int)clad->nodes.size(); ++i) {
@@ -163,7 +163,9 @@ void GeneratorCSV::writeData(Cladogram * clad, OutputFile & out) {
 
   // Images
   f << "\"#\",\"Images\"" << tail2 << "\n"
-    << "\"#\",\"File Path\",\"x Position\",\"y Position\"" << tailIm << "\n";
+    << "\"#\",\"If Reference node is set, x and y position are added to the node location\"" << tail2 << "\n"
+    << "\"#\",\"If x or y are not set, they will be 0\"" << tail2 << "\n"
+    << "\"#\",\"File Path\",\"x Position\",\"y Position\",\"Reference Node\"" << tailIm << "\n";
   for(int i = 0; i < (int)clad->includeSVG.size(); ++i) {
 
     im = clad->includeSVG[i];
@@ -176,6 +178,6 @@ void GeneratorCSV::writeData(Cladogram * clad, OutputFile & out) {
     im = clad->includePNG[i];
 
     f << "\"PNG\",\"" << im->filename << "\",\"" << int2str(im->x)
-      << "\",\"" << int2str(im->y) << "\"" << tailIm << "\n";
+      << "\",\"" << int2str(im->y) << "\",\"" << im->node <<"\"" << tailIm << "\n";
   }
 }

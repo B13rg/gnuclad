@@ -1,4 +1,4 @@
-@set UPDATED 15 September 2012
-@set UPDATED-MONTH September 2012
+@set UPDATED 27 February 2020
+@set UPDATED-MONTH February 2020
 @set EDITION HEAD
 @set VERSION HEAD
